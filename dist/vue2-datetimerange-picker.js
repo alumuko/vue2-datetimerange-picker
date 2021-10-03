@@ -143,7 +143,7 @@ Vue.component('datetimerange-picker', {
         },
         // bind element
         bindElement: {
-            type: [String | Object]
+            type: [String, Object]
         },
         inputTextId: {
             type: String,
