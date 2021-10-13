@@ -177,19 +177,20 @@ Vue.component('datetimerange-picker', {
             });
         else {
             let textSize
-             = this.$props.inputTextSize ? this.$props.inputTextSize :
-                this.$props.timePicker ? 40 : 24;
-            if(typeof textSize === 'string')
-                textSize=Number(textSize)
+                = this.$props.inputTextSize ? this.$props.inputTextSize :
+                    this.$props.timePicker ? 40 : 24;
+            if (typeof textSize === 'string')
+                textSize = Number(textSize)
             return createElement('input', {
-            attrs: {
-                type: 'text',
-                id: this.$props.inputTextId,
-                size: textSize,
-                class: this.$props.inputTextClass,
-                style: this.$props.inputTextStyle,
-            }
-        })};
+                attrs: {
+                    type: 'text',
+                    id: this.$props.inputTextId,
+                    size: textSize,
+                    class: this.$props.inputTextClass,
+                    style: this.$props.inputTextStyle,
+                }
+            })
+        };
     },
     mounted: function () {
         let vm = this;
@@ -207,12 +208,12 @@ Vue.component('datetimerange-picker', {
         if (this.showDropdowns)
             pickerOption['showDropdowns'] = this.showDropdowns;
         if (this.minYear)
-            if(typeof this.minYear === 'string')
+            if (typeof this.minYear === 'string')
                 pickerOption['minYear'] = Number(this.minYear);
             else
                 pickerOption['minYear'] = this.minYear;
         if (this.maxYear)
-            if(typeof this.maxYear === 'string')
+            if (typeof this.maxYear === 'string')
                 pickerOption['maxYear'] = Number(this.maxYear);
             else
                 pickerOption['maxYear'] = this.maxYear;
@@ -223,7 +224,7 @@ Vue.component('datetimerange-picker', {
         if (this.timePicker)
             pickerOption['timePicker'] = this.timePicker;
         if (this.timePickerIncrement)
-            if(typeof this.timePickerIncrement === 'string')
+            if (typeof this.timePickerIncrement === 'string')
                 pickerOption['timePickerIncrement'] = Number(this.timePickerIncrement);
             else
                 pickerOption['timePickerIncrement'] = this.timePickerIncrement;
@@ -300,11 +301,25 @@ Vue.component('datetimerange-picker', {
         let pickerBindElement = this.$props.bindElement ? this.$props.bindElement : this.$el;
         this.picker = new DateRangePicker(pickerBindElement, pickerOption,
             function (startDate, endDate) {
-                if (this.onRangeChange) {
-                    this.onRangeChange(startDate, endDate);
+                if (typeof vm.startDate === 'string') {
+                    if (vm.localeFormat)
+                        vm.$emit('update:startDate', startDate.format(vm.localeFormat));
+                    else
+                        vm.$emit('update:startDate', startDate.format());
+                } else {
+                    vm.$emit('update:startDate', startDate.toDate());
                 }
-                vm.$emit('update:startDate', startDate.toDate());
-                vm.$emit('update:endDate', endDate.toDate());
+                if (typeof vm.endDate === 'string') {
+                    if (vm.localeFormat)
+                        vm.$emit('update:endDate', endDate.format(vm.localeFormat));
+                    else
+                        vm.$emit('update:endDate', endDate.format());
+                } else {
+                    vm.$emit('update:endDate', endDate.toDate());
+                }
+                if (vm.onRangeChange) {
+                    vm.onRangeChange(startDate, endDate);
+                }
             }
         );
     }
