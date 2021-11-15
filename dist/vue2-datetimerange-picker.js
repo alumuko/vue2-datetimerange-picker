@@ -129,7 +129,7 @@ Vue.component('datetimerange-picker', {
         localeFirstDay: {
             type: [Number, String]
         },
-        localeAapplyLabel: {
+        localeApplyLabel: {
             type: String
         },
         localeCancelLabel: {
@@ -284,8 +284,8 @@ Vue.component('datetimerange-picker', {
             localeOption['monthNames'] = this.localeMonthNames;
         if (this.localeFirstDay)
             localeOption['firstDay'] = this.localeFirstDay;
-        if (this.localeAapplyLabel)
-            localeOption['aapplyLabel'] = this.localeAapplyLabel;
+        if (this.localeApplyLabel)
+            localeOption['applyLabel'] = this.localeApplyLabel;
         if (this.localeCancelLabel)
             localeOption['cancelLabel'] = this.localeCancelLabel;
         if (this.localeWeekLabel)
