@@ -67,7 +67,7 @@ See [simple example page](examples/datetime-example-simple.html).
 | show-iso-week-numbers | true/**false** | Show ISO week numbers at the start of each week on the calendars.|
 | time-picker | true/**false** | Adds select boxes to choose times in addition to dates.|
 | time-picker-increment | number | Increment of the minutes selection list for times (i.e. 30 to allow only selection of times ending in 0 or 30).|
-  time-picker24-hour | true/**false** | Use 24-hour instead of 12-hour times, removing the AM/PM selection.|
+  time-picker-twentyfour-hour | true/**false** | Use 24-hour instead of 12-hour times, removing the AM/PM selection.|
 | time-picker-seconds | true/**false** | Show seconds in the timePicker. |
 | ranges | object |Set predefined date ranges the user can select from. Each key is the label for the range, and its value an array with two dates representing the bounds of the range. See example code.|
 | show-custom-range-label | **true**/false | Displays "Custom Range" at the end of the list of predefined ranges, when the ranges option is used. This option will be highlighted whenever the current date range selection does not match one of the predefined ranges. Clicking it will display the calendars to select a new range. |
