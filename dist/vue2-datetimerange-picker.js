@@ -161,11 +161,20 @@ Vue.component('datetimerange-picker', {
         },
         onRangeChange: {
             type: Function,
+        },
+        onMountedComponent: {
+            type: Function,
         }
     },
     data: function () {
         return {
             picker: null
+        }
+    },
+    methods: {
+        updateData: function(newStartDateTime, newEndDateTime){
+            this.picker.setStartDate(newStartDateTime);
+            this.picker.setEndDate(newEndDateTime);
         }
     },
     render: function (createElement) {
@@ -322,5 +331,8 @@ Vue.component('datetimerange-picker', {
                 }
             }
         );
+
+        if(vm.onMountedComponent)
+            vm.onMountedComponent(vm);
     }
 })
