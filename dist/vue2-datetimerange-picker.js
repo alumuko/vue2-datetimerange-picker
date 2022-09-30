@@ -11,6 +11,7 @@
 Vue.component('datetimerange-picker', {
     //template: '<input type="text" :id="inputTextId" :class="inputTextClass" :size="inputTextSize" :style="inputTextStyle" />',
     props: {
+        id: null,
         startDate: {
             type: [Date, String]
         },
@@ -172,9 +173,12 @@ Vue.component('datetimerange-picker', {
         }
     },
     methods: {
-        updateData: function(newStartDateTime, newEndDateTime){
+        updateDate: function(newStartDateTime, newEndDateTime){
             this.picker.setStartDate(newStartDateTime);
             this.picker.setEndDate(newEndDateTime);
+        },
+        updateRanges: function(newRanges){
+            this.picker.updateRanges(newRanges);
         }
     },
     render: function (createElement) {

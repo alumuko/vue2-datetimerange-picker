@@ -49,6 +49,10 @@ See [simple example page](examples/datetime-example-simple.html).
 | start-date | Date or string | The beginning date of the initially selected date range. If you provide a string, it must match the date format string set in your locale setting.|
 | end-date | Date or string | The end date of the initially selected date range.|
 
+## Methods
+| Method | Description |
+| updateDate(newStartDateTime, newEndDateTime) | update date |
+| updateRanges(newRanges) | update datetime range selection (since 0.2.0 with vanilla-datetimerange-picker 0.2.0 or later)|
 
 ### Other properties
 <details>
