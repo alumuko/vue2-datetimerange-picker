@@ -51,6 +51,7 @@ See [simple example page](examples/datetime-example-simple.html).
 
 ## Methods
 | Method | Description |
+----|----
 | updateDate(newStartDateTime, newEndDateTime) | update date |
 | updateRanges(newRanges) | update datetime range selection (since 0.2.0 with vanilla-datetimerange-picker 0.2.0 or later)|
 
